@@ -1,0 +1,316 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 245px;
+  padding: 25px 17px;
+  background: #10101d;
+  border-right: 1px solid #26263b;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  font-size: 19px;
+  color: #a78bfa;
+  margin-bottom: 35px;
+}
+
+.label {
+  font-size: 10px;
+  color: #85859f;
+  letter-spacing: 2px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 13px;
+  margin: 4px 0;
+  background: transparent;
+  color: #aaaabd;
+  border: 0;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav:hover,
+.nav.active {
+  color: white;
+  background: #292342;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  color: #8bdfb6;
+  font-size: 12px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+header {
+  height: 65px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #26263b;
+  color: #aaaabd;
+  font-size: 12px;
+}
+
+.demo {
+  color: #a78bfa;
+  font-size: 10px;
+}
+
+.content {
+  padding: 35px;
+}
+
+.content h1 {
+  font-size: 28px;
+}
+
+.subtitle,
+.card p {
+  color: #9393a9;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #131323;
+  border: 1px solid #292942;
+  border-radius: 13px;
+  padding: 25px;
+  min-width: 0;
+}
+
+.card svg {
+  color: #a78bfa;
+}
+
+.card h2,
+.card h3 {
+  margin-bottom: 8px;
+}
+
+.card strong {
+  font-size: 14px;
+}
+
+.connection button {
+  background: #8b5cf6;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 17px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media(max-width: 700px) {
+  .sidebar {
+    width: 175px;
+    padding: 15px 9px;
+  }
+
+  .sidebar h2 {
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 20px 12px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding: 0 12px;
+    font-size: 10px;
+  }
+}
+/* PHANTOM VPN server management */
+
+.server-management {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.server-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.server-toolbar h2 {
+  margin: 0 0 6px;
+}
+
+.server-toolbar p,
+.form-hint {
+  opacity: 0.65;
+  font-size: 13px;
+}
+
+.add-server-button,
+.server-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 17px;
+  background: #8b5cf6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.server-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+}
+
+.server-form h2 {
+  margin-top: 0;
+}
+
+.server-form label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.server-form input,
+.server-form select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  outline: none;
+}
+
+.server-form select option {
+  background: #171326;
+  color: white;
+}
+
+.server-form input:focus,
+.server-form select:focus {
+  border-color: #8b5cf6;
+}
+
+.server-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.server-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 16px;
+}
+
+.server-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.server-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+
+.server-details {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+  min-width: 0;
+}
+
+.server-details h3 {
+  margin: 0;
+}
+
+.server-details p {
+  margin: 0;
+  opacity: 0.7;
+}
+
+.server-details code {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.server-status {
+  font-size: 11px;
+  color: #fbbf24;
+}
+
+.delete-server-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  background: transparent;
+  color: #f87171;
+  cursor: pointer;
+}
+
+.delete-server-button:hover {
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.empty-servers {
+  text-align: center;
+  padding: 35px;
+}
+
+.server-message {
+  padding: 12px 16px;
+  margin-bottom: 12px;
+}
