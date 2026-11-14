@@ -1,6 +1,8 @@
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException
+from app.desktop_sessions import recover_sessions
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -85,3 +87,18 @@ def delete_server(server_id: str):
 @app.get("/api/devices")
 def get_devices():
     return {"devices": devices}
+
+from app.auth import router as auth_router
+app.include_router(auth_router)
+
+from app.desktop_gateway import router as desktop_router
+app.include_router(desktop_router)
+app.mount("/desktop/ui", StaticFiles(directory="/usr/share/novnc", html=True), name="novnc")
+
+from app.access_management import router as access_router
+app.include_router(access_router)
+
+@app.on_event("startup")
+async def restore_desktop_sessions():
+    await recover_sessions()
+
